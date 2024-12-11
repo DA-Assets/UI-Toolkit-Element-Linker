@@ -1,0 +1,3 @@
+Version 2.0.1
+
+The unnecessary files left from version 1.x have been removed.
