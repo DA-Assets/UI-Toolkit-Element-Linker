@@ -1,3 +1,4 @@
-Version 2.0.1
+Version 2.0.2
 
-The unnecessary files left from version 1.x have been removed.
+Minor update, no changes in logic.  
+Script locations have been adjusted to match the standard of other D.A. Assets products.
