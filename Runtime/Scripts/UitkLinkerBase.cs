@@ -44,7 +44,12 @@ namespace DA_Assets.UEL
                     break;
                 case UitkLinkingMode.IndexNames:
                     {
-                        elem = FindComponentByHierarchy(root, _names, x => x.name);
+                        elem = FindComponentByHierarchy(
+                            root,
+                            _names, 
+                            ve => ve.name,
+                            debug: _debug, 
+                            gameObject: gameObject);
                     }
                     break;
                 case UitkLinkingMode.Guid:
@@ -54,7 +59,12 @@ namespace DA_Assets.UEL
                     break;
                 case UitkLinkingMode.Guids:
                     {
-                        elem = FindComponentByHierarchy(root, _guids, x => x.guid);
+                        elem = FindComponentByGuidHierarchy(
+                            root,
+                            _guids, 
+                            gh => gh.guid,
+                            debug: _debug, 
+                            gameObject: gameObject);
                     }
                     break;
                 default:
@@ -82,113 +92,17 @@ namespace DA_Assets.UEL
 
             if (_debug && _element != null)
             {
-                string elementName = (string.IsNullOrEmpty(_element.name) && (_element is IHaveGuid)) ? (_element as IHaveGuid).guid : _element.name;
+                string elementName = (string.IsNullOrEmpty(_element.name) 
+                    && (_element is IHaveGuid)) 
+                    ? (_element as IHaveGuid).guid 
+                    : _element.name;
+
                 Debug.Log($"Element found: {elementName}.\nGameObject name: {goName}");
             }
 
             OnElementLinked();
         }
 
-        private VisualElement FindGuidRecursive(VisualElement root, string guid)
-        {
-            if (root == null)
-                return null;
-
-            System.Collections.Generic.IEnumerable<VisualElement> childs = root.Children();
-
-            if (childs == null)
-                return null;
-
-            foreach (VisualElement child in childs)
-            {
-                if (child is IHaveGuid customElement && customElement.guid == guid)
-                {
-                    return child;
-                }
-
-                VisualElement found = FindGuidRecursive(child, guid);
-
-                if (found != null)
-                {
-                    return found;
-                }
-            }
-
-            return null;
-        }
-
-        private VisualElement FindComponentByHierarchy(VisualElement root, ElementIndexName[] hierarchy, Func<VisualElement, string> propertySelector, int depth = 0)
-        {
-            if (depth == hierarchy.Length)
-                return root;
-
-            if (root == null)
-                return null;
-
-            ElementIndexName ein = hierarchy[depth];
-
-            VisualElement[] children = root.Children().ToArray();
-
-            for (int i = 0; i < children.Length; i++)
-            {
-                VisualElement child = children[i];
-
-                int newDepth = depth + 1;
-
-                if (ein.Index == DEFAULT_INDEX)
-                {
-                    if (_debug)
-                        Debug.Log($"{gameObject.name} | 1 | {ein.Name}");
-
-                    if (propertySelector(child) == ein.Name)
-                    {
-                        return FindComponentByHierarchy(child, hierarchy, propertySelector, newDepth);
-                    }
-                }
-                else if (ein.Index == i)
-                {
-                    if (_debug)
-                        Debug.Log($"{gameObject.name} | 2 | {ein.Name}");
-
-                    return FindComponentByHierarchy(child, hierarchy, propertySelector, newDepth);
-                }
-            }
-
-            return null;
-        }
-
-        private VisualElement FindComponentByHierarchy(VisualElement root, string[] hierarchy, Func<IHaveGuid, string> propertySelector, int depth = 0)
-        {
-            if (depth == hierarchy.Length)
-                return root;
-
-            if (root == null)
-                return null;
-
-            string guid = hierarchy[depth];
-
-            VisualElement[] children = root.Children().ToArray();
-
-            for (int i = 0; i < children.Length; i++)
-            {
-                VisualElement child = children[i];
-
-                int newDepth = depth + 1;
-
-                if (child is IHaveGuid myElement)
-                {
-                    if (propertySelector(myElement) == guid)
-                    {
-                        if (_debug)
-                            Debug.Log($"{gameObject.name} | 3 | {guid}");
-
-                        return FindComponentByHierarchy(child, hierarchy, propertySelector, newDepth);
-                    }
-                }
-            }
-
-            return null;
-        }
         private string GetTargetObjectStr()
         {
             string str = null;
@@ -312,6 +226,120 @@ namespace DA_Assets.UEL
                     _names[i] = ein;
                 }
             }
+        }
+
+
+        public static VisualElement FindGuidRecursive(VisualElement root, string guid)
+        {
+            if (root == null)
+                return null;
+
+            System.Collections.Generic.IEnumerable<VisualElement> childs = root.Children();
+
+            if (childs == null)
+                return null;
+
+            foreach (VisualElement child in childs)
+            {
+                if (child is IHaveGuid customElement && customElement.guid == guid)
+                {
+                    return child;
+                }
+
+                VisualElement found = FindGuidRecursive(child, guid);
+
+                if (found != null)
+                {
+                    return found;
+                }
+            }
+
+            return null;
+        }
+
+        public static VisualElement FindComponentByHierarchy(
+            VisualElement root, 
+            ElementIndexName[] hierarchy, 
+            Func<VisualElement, string> propertySelector, 
+            int depth = 0,
+            bool debug = false,
+            GameObject gameObject = null)
+        {
+            if (depth == hierarchy.Length)
+                return root;
+
+            if (root == null)
+                return null;
+
+            ElementIndexName ein = hierarchy[depth];
+
+            VisualElement[] children = root.Children().ToArray();
+
+            for (int i = 0; i < children.Length; i++)
+            {
+                VisualElement child = children[i];
+
+                int newDepth = depth + 1;
+
+                if (ein.Index == DEFAULT_INDEX)
+                {
+                    if (debug)
+                        Debug.Log($"{gameObject?.name} | 1 | {ein.Name}");
+
+                    if (propertySelector(child) == ein.Name)
+                    {
+                        return FindComponentByHierarchy(child, hierarchy, propertySelector, newDepth, debug, gameObject);
+                    }
+                }
+                else if (ein.Index == i)
+                {
+                    if (debug)
+                        Debug.Log($"{gameObject?.name} | 2 | {ein.Name}");
+
+                    return FindComponentByHierarchy(child, hierarchy, propertySelector, newDepth, debug, gameObject);
+                }
+            }
+
+            return null;
+        }
+
+        public static VisualElement FindComponentByGuidHierarchy(
+            VisualElement root, 
+            string[] guids, 
+            Func<IHaveGuid, string> propertySelector, 
+            int depth = 0,
+            bool debug = false,
+            GameObject gameObject = null)
+        {
+            if (depth == guids.Length)
+                return root;
+
+            if (root == null)
+                return null;
+
+            string guid = guids[depth];
+
+            VisualElement[] children = root.Children().ToArray();
+
+            for (int i = 0; i < children.Length; i++)
+            {
+                VisualElement child = children[i];
+
+                int newDepth = depth + 1;
+
+                if (child is IHaveGuid myElement)
+                {
+                    if (propertySelector(myElement) == guid)
+                    {
+                        if (debug)
+                            Debug.Log($"{gameObject?.name} | 3 | {guid}");
+
+                        return FindComponentByGuidHierarchy(child, guids, propertySelector, newDepth, debug, gameObject);
+                    }
+                }
+            }
+
+            return null;
         }
     }
 

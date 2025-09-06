@@ -1,4 +1,3 @@
-Version 2.0.2
+Version 2.1.0
 
-Minor update, no changes in logic.  
-Script locations have been adjusted to match the standard of other D.A. Assets products.
+A new class UitkQueryExtensions has been added for searching elements through code.
