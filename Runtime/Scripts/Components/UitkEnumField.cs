@@ -4,9 +4,9 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkEnumField : UitkLinker<EnumField> { }
+    public class UitkEnumField : UitkLinker<EnumField, Enum> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(EnumFieldG))]

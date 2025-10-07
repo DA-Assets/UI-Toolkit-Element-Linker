@@ -1,9 +1,9 @@
 #if UNITY_2021_3_OR_NEWER
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkRadioButton : UitkLinker<RadioButton> { }
+    public class UitkRadioButton : UitkLinker<RadioButton, bool> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(RadioButtonG))]

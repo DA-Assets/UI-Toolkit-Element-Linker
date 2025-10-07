@@ -1,9 +1,9 @@
 #if UNITY_2021_3_OR_NEWER
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkSliderInt : UitkLinker<SliderInt> { }
+    public class UitkSliderInt : UitkLinker<SliderInt, int> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(SliderIntG))]

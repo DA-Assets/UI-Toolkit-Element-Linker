@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
     public class UitkPopupWindow : UitkLinker<PopupWindow> { }
 

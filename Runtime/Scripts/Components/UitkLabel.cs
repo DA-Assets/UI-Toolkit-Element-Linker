@@ -1,8 +1,8 @@
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkLabel : UitkLinker<Label> { }
+    public class UitkLabel : UitkLinker<Label, string> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(LabelG))]

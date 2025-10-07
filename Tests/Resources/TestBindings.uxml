@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uel="DA_Assets.UEL" editor-extension-mode="False">
+    <ui:VisualElement name="Root" class="root-container">
+        <uel:DoubleFieldG guid="2abf6d5f4a2840f7873a9ef3245b62f1"/>
+        <uel:EnumFieldG guid="7ebc4f4a7b2245c4a9df77af87b61a1a"/>
+        <uel:FloatFieldG guid="c674d1b4d42d45018a4bfc651c01fbf6"/>
+        <uel:ImageG guid="14792e6be8744c8dbac8c484dd09cb3a"/>
+        <uel:IntegerFieldG guid="0b21f1b223db497dbc8c20c6cd9ca520"/>
+        <uel:LongFieldG guid="a03f5ce20daf4fffa44f14f7a64de795"/>
+        <uel:ProgressBarG guid="f7f38102afde4d86a1ff6bd739f8ed9d"/>
+        <uel:RadioButtonG guid="2c7bb8fd9ea24313ad87750c124a1b63"/>
+        <uel:SliderG guid="88b8695b3d6f40d2b24ed8c3db8a5f95"/>
+        <uel:SliderIntG guid="ad0f5e2c9b2a4fe59bdf4b7a8249135c" low-value="-10"/>
+        <uel:TextFieldG guid="61f019adcc6c45818b46485f1b852d07"/>
+        <uel:Vector2FieldG guid="5fc50b30f8224c0083aa7bb3cba5a4eb"/>
+        <uel:Vector2IntFieldG guid="f8540368be404d1485d2bdfb1ef82b5c"/>
+        <uel:Vector3FieldG guid="1a895f9fdf0a47b0a30734d3b90be671"/>
+        <uel:Vector3IntFieldG guid="f4d8364073ae4dc7b37ed50d65ed90b0"/>
+        <uel:Vector4FieldG guid="cad255502e8441399b8fba29cb96627b"/>
+    </ui:VisualElement>
+</ui:UXML>

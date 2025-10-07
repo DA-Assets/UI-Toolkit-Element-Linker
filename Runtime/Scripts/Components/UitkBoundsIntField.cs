@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
     public class UitkBoundsIntField : UitkLinker<BoundsIntField> { }
 

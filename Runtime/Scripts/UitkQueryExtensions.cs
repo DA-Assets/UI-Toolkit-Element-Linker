@@ -1,6 +1,8 @@
-﻿using UnityEngine.UIElements;
+﻿using System;
+using System.Reflection;
+using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
     public static class UitkQueryExtensions
     {
@@ -24,5 +26,18 @@ namespace DA_Assets.UEL
                 depth: 0,
                 debug: false,
                 gameObject: null) as T;
+
+        public static bool GetCanRead(this MemberInfo member)
+        {
+            switch (member)
+            {
+                case FieldInfo mfi:
+                    return true;
+                case PropertyInfo mpi:
+                    return mpi.CanRead;
+                default:
+                    throw new ArgumentException("MemberInfo must be if type FieldInfo or PropertyInfo", nameof(member));
+            }
+        }
     }
 }

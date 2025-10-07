@@ -1,7 +1,7 @@
 #if UNITY_2021_3_OR_NEWER
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
     public class UitkGroupBox : UitkLinker<GroupBox> { }
 

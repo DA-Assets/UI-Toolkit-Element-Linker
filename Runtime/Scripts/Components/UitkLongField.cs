@@ -1,9 +1,9 @@
 #if UNITY_2022_1_OR_NEWER
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkLongField : UitkLinker<LongField> { }
+    public class UitkLongField : UitkLinker<LongField, long> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(LongFieldG))]

@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
     public static class ContextMenuItems
     {
@@ -21,31 +20,31 @@ namespace DA_Assets.UEL
         private const string VISUAL_TREE_ASSET_FIELD_NAME = "visualTreeAsset";
         private const string SELECTION_FIELD_NAME = "m_Selection";
 
-        [MenuItem("Tools/" + UitkLinkerBase.Publisher + "/" + UitkLinkerBase.Product + ": Copy element guid hierarchy", false, 10)]
+        [MenuItem("Tools/" + UitkConstants.Publisher + "/" + UitkConstants.Product + ": Copy element guid hierarchy", false, 10)]
         private static void CopyElementGuidHierarchy_OnClick()
         {
             CopyHierarchy(guid: true, includeIndex: false, includeName: true);
         }
 
-        [MenuItem("Tools/" + UitkLinkerBase.Publisher + "/" + UitkLinkerBase.Product + ": Copy element name hierarchy", false, 11)]
+        [MenuItem("Tools/" + UitkConstants.Publisher + "/" + UitkConstants.Product + ": Copy element name hierarchy", false, 11)]
         private static void CopyElementNameHierarchy_OnClick()
         {
             CopyHierarchy(guid: false, includeIndex: false, includeName: true);
         }
 
-        [MenuItem("Tools/" + UitkLinkerBase.Publisher + "/" + UitkLinkerBase.Product + ": Copy element index hierarchy", false, 12)]
+        [MenuItem("Tools/" + UitkConstants.Publisher + "/" + UitkConstants.Product + ": Copy element index hierarchy", false, 12)]
         private static void CopyElementIndexHierarchy_OnClick()
         {
             CopyHierarchy(guid: false, includeIndex: true, includeName: false);
         }
 
-        [MenuItem("Tools/" + UitkLinkerBase.Publisher + "/" + UitkLinkerBase.Product + ": Copy element index + name hierarchy", false, 13)]
+        [MenuItem("Tools/" + UitkConstants.Publisher + "/" + UitkConstants.Product + ": Copy element index + name hierarchy", false, 13)]
         private static void CopyElementIndexNameHierarchy_OnClick()
         {
             CopyHierarchy(guid: false, includeIndex: true, includeName: true);
         }
 
-        //[MenuItem("Tools/" + UitkLinkerBase.Publisher + "/" + UitkLinkerBase.Product + ": Test Item", false, 14)]
+        //[MenuItem("Tools/" + UEL_Constants.Publisher + "/" + UEL_Constants.Product + ": Test Item", false, 14)]
         private static void TestItem_OnClick()
         {
             GetUIBuilderWindow(out var uiBuilderType, out var currentBuilderWindow);
@@ -99,7 +98,7 @@ namespace DA_Assets.UEL
             {
                 ElementIndexName[] elementIndexNames = GetParentHierarchy(selectedElement).Select(x => new ElementIndexName
                 {
-                    Index = includeIndex ? x.parent.IndexOf(x) : UitkLinkerBase.DEFAULT_INDEX,
+                    Index = includeIndex ? x.parent.IndexOf(x) : UitkConstants.DEFAULT_INDEX,
                     Name = includeName ? x.name : null
                 }).ToArray();
 

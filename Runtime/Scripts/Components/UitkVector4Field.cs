@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkVector4Field : UitkLinker<Vector4Field> { }
+    public class UitkVector4Field : UitkLinker<Vector4Field, Vector4> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(Vector4FieldG))]

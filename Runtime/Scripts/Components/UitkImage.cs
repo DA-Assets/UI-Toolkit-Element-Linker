@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkImage : UitkLinker<Image> { }
+    public class UitkImage : UitkLinker<Image, Sprite> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(ImageG))]

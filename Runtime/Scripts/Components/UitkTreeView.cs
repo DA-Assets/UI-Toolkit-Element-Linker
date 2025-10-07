@@ -1,7 +1,7 @@
 #if UNITY_2022_1_OR_NEWER
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
     public class UitkTreeView : UitkLinker<TreeView> { }
 

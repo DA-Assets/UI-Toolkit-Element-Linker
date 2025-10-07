@@ -1,8 +1,8 @@
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkSlider : UitkLinker<Slider> { }
+    public class UitkSlider : UitkLinker<Slider, float> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(SliderG))]

@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkVector3IntField : UitkLinker<Vector3IntField> { }
+    public class UitkVector3IntField : UitkLinker<Vector3IntField, Vector3Int> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(Vector3IntFieldG))]

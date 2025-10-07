@@ -1,0 +1,14 @@
+{
+    "name": "DA_Assets.ULB",
+    "rootNamespace": "DA_Assets.ULB",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

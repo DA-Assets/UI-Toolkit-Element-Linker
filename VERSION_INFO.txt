@@ -1,3 +1,1 @@
-Version 2.1.0
-
-A new class UitkQueryExtensions has been added for searching elements through code.
+Version 3.0.0

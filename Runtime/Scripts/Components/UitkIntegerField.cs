@@ -1,9 +1,9 @@
 #if UNITY_2022_1_OR_NEWER
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkIntegerField : UitkLinker<IntegerField> { }
+    public class UitkIntegerField : UitkLinker<IntegerField, int> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(IntegerFieldG))]

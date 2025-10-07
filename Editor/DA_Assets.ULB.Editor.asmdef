@@ -1,0 +1,18 @@
+{
+    "name": "DA_Assets.ULB.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:18f4a329dd82a544b9708a339d2ef8c9"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
     public class ScriptGeneratorEditor : EditorWindow
     {

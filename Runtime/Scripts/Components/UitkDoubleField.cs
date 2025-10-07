@@ -1,9 +1,9 @@
 #if UNITY_2022_1_OR_NEWER
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkDoubleField : UitkLinker<DoubleField> { }
+    public class UitkDoubleField : UitkLinker<DoubleField, double> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(DoubleFieldG))]

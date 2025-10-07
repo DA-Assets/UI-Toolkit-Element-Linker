@@ -2,9 +2,9 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkVector2IntField : UitkLinker<Vector2IntField> { }
+    public class UitkVector2IntField : UitkLinker<Vector2IntField, Vector2Int> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(Vector2IntFieldG))]

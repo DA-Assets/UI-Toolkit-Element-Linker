@@ -1,8 +1,8 @@
 using UnityEngine.UIElements;
 
-namespace DA_Assets.UEL
+namespace DA_Assets.ULB
 {
-    public class UitkTextField : UitkLinker<TextField> { }
+    public class UitkTextField : UitkLinker<TextField, string> { }
 
 #if UNITY_6000_0_OR_NEWER
     [UxmlElement(nameof(TextFieldG))]
